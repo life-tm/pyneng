@@ -39,11 +39,11 @@ network_2 = int(network[1])
 network_3 = int(network[2])
 network_4 = int(network[3])
 mask_prefix = network_mask[1]
-mask_int = '1'*int(mask_prefix)
+mask_int = '1'*int(mask_prefix) + '0' * (32 - int(mask_prefix))
 mask_1 = int(mask_int[0:8],2)
 mask_2 = int(mask_int[8:16],2)
-mask_3 = int(mask_int[16:23],2)
-mask_4 = int(mask_int[23:31],2)
+mask_3 = int(mask_int[16:24],2)
+mask_4 = int(mask_int[24:32],2)
 print('''
 Network:
 {network[0]:8}  {network[1]:8}  {network[2]:8}  {network[3]:8}
@@ -51,6 +51,8 @@ Network:
 
 Mask:
 /{mask_prefix}
-{mask_1:<8}  {mask_2:<8} {mask_3:<8}
-{mask_1:<08b}  {mask_2:<08b} {mask_3:<08b}
-'''.format(network=network,network_1=network_1,network_2=network_2,network_3=network_3,network_4=network_4,mask_prefix=mask_prefix,mask_1=mask_1,mask_2=mask_2,mask_3=mask_3))
+{mask_1:<8}  {mask_2:<8}  {mask_3:<8}  {mask_4:<8}
+{mask_1:<08b}  {mask_2:<08b}  {mask_3:<08b}  {mask_4:<08b}
+'''.format(network=network,network_1=network_1,network_2=network_2,network_3=network_3,network_4=network_4,mask_prefix=mask_prefix,mask_1=mask_1,mask_2=mask_2,mask_3=mask_3,mask_4=mask_4))
+
+# Проверка из задачи: 10.1.1.192/28
