@@ -13,3 +13,9 @@ MAC-адреса используются в формате XXXX.XXXX.XXXX
 """
 
 mac = ["aabb:cc80:7000", "aabb:dd80:7340", "aabb:ee80:7000", "aabb:ff80:7000"]
+result = []
+for list_mac in mac:
+    if ":" in list_mac:
+        list_mac = list_mac.replace(":",".")
+        result.append(list_mac)
+print(result)
